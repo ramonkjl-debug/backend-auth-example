@@ -25,7 +25,7 @@ export class AuthenticationMiddleware implements IMiddleware {
       return unauthorized({ message: 'Unauthorized' });
     }
 
-    const payload = await this.decrypter.decrypt(token) as { sub: string; role: string; tenantId: string };
+    const payload = await this.decrypter.decrypt(token) as { sub: string; };
 
     if (!payload) {
       return unauthorized({ message: 'Unauthorized' });
